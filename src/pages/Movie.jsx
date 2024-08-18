@@ -1,8 +1,5 @@
-
 const Movie = () => {
-  return (
-    <div>Movie</div>
-  )
-}
+  return <h1>Movie</h1>;
+};
 
-export default Movie
+export default Movie;
