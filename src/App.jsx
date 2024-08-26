@@ -5,23 +5,29 @@ import Movie from "./pages/Movie";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import AppLayout from "./components/layouts/AppLayout";
+import { ErrorPage } from "./pages/ErrorPage";
+import { getMovieData } from "./api/GetApidata";
+
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <AppLayout />,
+      errorElement: <ErrorPage />,
       children: [
-        { path: "/", element: <Home /> },
-        { path: "about", element: <About /> },
-        { path: "contact", element: <Contact /> },
-        { path: "movie", element: <Movie /> },
+        { path: "/", element: <Home />, key: "home" },
+        { path: "about", element: <About />, key: "about" },
+        { path: "contact", element: <Contact />, key: "contact" },
+        {
+          path: "movie",
+          element: <Movie />,
+          loader: getMovieData,
+          key: "movie",
+        },
       ],
     },
-    {
-      path: "*",
-      element: <h1>Page Not Found</h1>,
-    },
   ]);
+
   return <RouterProvider router={router} />;
 };
 

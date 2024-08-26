@@ -1217,4 +1217,11 @@ footer {
     padding: 6.4rem 0rem 2.4rem 0rem;
   }
 }
-/***** End  media queries Section *****/
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
